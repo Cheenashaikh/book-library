@@ -15,19 +15,20 @@ function App() {
   };
 
   const fetchBooksData = async () => {
-    try {
-      const response = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes?q=java"
-      );
-      setRecord(response?.data?.items);
-    } catch (error) {
-      console.log(error);
+    if (search) {
+      try {
+        const response = await axios.get(
+          `https://www.googleapis.com/books/v1/volumes?q=${search}`
+        );
+        setRecord(response?.data?.items || []);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
-
   useEffect(() => {
     fetchBooksData();
-  }, []);
+  }, [search]);
 
   return (
     <div className="body">
