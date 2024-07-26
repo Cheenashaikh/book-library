@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import "./App.css";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,7 +26,7 @@ function App() {
     }
   };
   useEffect(() => {
-    fetchBooksData();
+    fetchBooksData(); // call this method if deplay between key press is graeter then 500ms
   }, [search]);
 
   return (
@@ -66,35 +65,33 @@ function App() {
         </div>
 
         <section className="bookTable">
-          {record &&
-            record
-              .filter((item) => {
-                return search.toLowerCase() === ""
-                  ? item
-                  : item?.volumeInfo?.title
-                      .toLowerCase()
-                      .includes(search.toLowerCase());
-              })
-              .map((list, index) => (
-                <div key={index}>
-                  <img
-                    className="productImage"
-                    src={
-                      list?.volumeInfo?.imageLinks
-                        ? list?.volumeInfo?.imageLinks.thumbnail
-                        : "http://books.google.com/books/content?id=2HvGDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-                    }
-                  />
+          {record
+            ?.filter((item) => {
+              return search.toLowerCase() === ""
+                ? item
+                : item?.volumeInfo?.title
+                    ?.toLowerCase()
+                    ?.includes(search?.toLowerCase());
+            })
+            ?.map((list, index) => (
+              <div key={index}>
+                <img
+                  className="productImage"
+                  src={
+                    list?.volumeInfo?.imageLinks
+                      ? list?.volumeInfo?.imageLinks.thumbnail
+                      : "http://books.google.com/books/content?id=2HvGDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+                  }
+                />
 
-                  <h3>{list?.volumeInfo?.title}</h3>
+                <h3>{list?.volumeInfo?.title}</h3>
 
-                  <p>
-                    {list?.volumeInfo?.authors &&
-                      list?.volumeInfo?.authors.join(",")}
-                  </p>
-                  <p>{list?.volumeInfo?.publisher}</p>
-                </div>
-              ))}
+                <p>
+                  {list?.volumeInfo?.authors?.join(",")}
+                </p>
+                <p>{list?.volumeInfo?.publisher}</p>
+              </div>
+            ))}
         </section>
       </div>
       <footer>

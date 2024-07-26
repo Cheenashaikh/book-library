@@ -39,7 +39,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .bookTable div:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* remove scale */
   box-shadow: 10px 15px 15px 10px rgb(116, 116, 116);
 }
 .productImage {
