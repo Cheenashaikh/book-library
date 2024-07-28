@@ -10,7 +10,10 @@ function App() {
   const [search, setSearch] = useState("");
 
   const handleSearch = (e) => {
+    setTimeout( ()=>{
     setSearch(e.target.value);
+  console.log(e.target.value +" is types");},5000);
+
   };
 
   const fetchBooksData = async () => {
