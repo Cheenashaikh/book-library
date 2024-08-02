@@ -1,0 +1,60 @@
+.para-image{
+ display: flex;
+ align-items: start;
+ justify-content:space-evenly;
+ 
+}
+
+
+
+.image{
+    max-width: 100%;
+    height: auto;
+    width: 500px;
+    height: 250px;
+    align-items: right;
+    margin: 0;
+    padding: 0;
+  vertical-align: auto;
+    
+
+
+}
+.image img {
+    width: 500px;
+    height: 250px;
+    align-items: right;
+    margin: 0;
+    padding: 0;
+  vertical-align: auto;
+    
+
+}
+.para p {
+    text-align: left;
+    margin: 0 0 10px;
+    word-spacing: 2px;
+    
+}
+.list-item{
+
+    display: flex;
+
+    align-items: center;
+
+flex-wrap: wrap;
+
+justify-content:space-between; 
+
+}
+
+
+.list-item img{
+width: 300px;
+height: 300px;
+position: relative;
+
+
+
+}
+
