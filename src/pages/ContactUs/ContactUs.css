@@ -29,24 +29,53 @@ background-color: #001534;
  
 
 
-  input[type="text"] {
-    width: 100%; 
+  input {
+    width: 50%; 
     padding: 10px; 
     border: 1px solid #ccc; 
     border-radius: 5px;
     font-size: 16px; 
+    display: flex;
+   
+    border-radius: 30px;
+
+    
+  
+    
+  }
+  button{
+
+    margin: 20px 0 0 0 ;
+    
   }
   
-  input[type="text"]::placeholder {
+  input ::placeholder {
     color: #999; 
     font-style: italic; 
+    justify-content:start
   }
-  Form{
+  .Form{
     margin: 50px;
     padding: 20px;
-    display: grid;
- 
-    
-    justify-items: center;
+  
+
+    display: flex;
+   
+    gap: 20px;
+    justify-content:space-between;
+   
 
   }
+  .FormCss{
+    width: 60%;
+     
+    padding: 10px; 
+
+
+  }
+
+  p{
+
+    font-size: medium;
+  }
+  

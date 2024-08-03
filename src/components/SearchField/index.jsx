@@ -4,7 +4,7 @@ import axios from "axios";
 import "./SearchField.css";
 function SearchField(){
     const [record, setRecord] = useState([]);
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState("Novel");
   
     const handleSearch = (e) => {
       setTimeout( ()=>{
