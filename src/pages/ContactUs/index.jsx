@@ -16,13 +16,21 @@ setMessage('');
     return(
 
 <div className="Form">
-<form>
+<form className="FormCss">
 
-    <input placeholder="Name" type="text" value={name} onChange={(e)=>setName(e.target.value)}/><br/>
-    <input placeholder="Email" type="text" value={email} onChange={(e)=>setEmail(e.target.value) }/> <br/>
-    <input className="Message" placeholder="Message" type="text"  value={message} onChange={(e)=>setMessage(e.target.value)}/><br/>
+<p style={{ fontWeight: 'bold'}}>Name</p>   
+ <input type="text" value={name} onChange={(e)=>setName(e.target.value)}/><br/>
+ <p style={{ fontWeight: 'bold'}}>Email</p>   
+    <input  type="email" value={email} onChange={(e)=>setEmail(e.target.value) }/> <br/>
+    <p style={{ fontWeight: 'bold'}}>Message</p>   
+    <input className="Message" type="text"  value={message} onChange={(e)=>setMessage(e.target.value)} style={{height:'150px'}}/><br/>
     <button onClick={handle}>Done</button><br/>
 </form>
+
+<div className="imageCss">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXjQ3BpzwbCnZY26wua72vPZQE2QWimjmzVQ&s" alt="book" style={{width:'300px'}}/>
+
+</div>
 
 
 </div>
