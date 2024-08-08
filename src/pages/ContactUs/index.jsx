@@ -22,34 +22,34 @@ function ContactUs() {
   return (
     <div className="Form">
       <form className="FormCss" onSubmit={handleSubmit}>
-        <p style={{ fontWeight: "bold" }}>Name</p>
+        <label>Name</label>
         <input
           type="text"
           value={formControl.name}
           name="name"
           onChange={handleOnChange}
         />
-        <br />
-        <p style={{ fontWeight: "bold" }}>Email</p>
+       
+    <label>Email</label>
         <input
           type="email"
           value={formControl.email}
           name="email"
           onChange={handleOnChange}
         />
-        <br />
-        <p style={{ fontWeight: "bold" }}>Message</p>
+       
+       <label>Message</label>
         <input
           className="Message"
           type="text"
           value={formControl.message}
           name="message"
           onChange={handleOnChange}
-          style={{ height: "150px" }}
+        
         />
-        <br />
+       
         <button type="submit">Done</button>
-        <br />
+        
       </form>
       <div className="imageCss">
         <img

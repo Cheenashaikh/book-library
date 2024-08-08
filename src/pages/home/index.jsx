@@ -1,16 +1,15 @@
+// src/pages/home/Home.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./home.css";
+import useDebounce from "../../hooks/common/useDebounce";
 
-function Home() {
+import BookCard from "./card";
+import SearchBar from "./search";
+
+function Home({search,handleSearch}) {
   const [record, setRecord] = useState([]);
-  const [search, setSearch] = useState("Novel");
-
-  const handleSearch = (e) => {
-    setTimeout(() => {
-      setSearch(e.target.value);
-    }, 500);
-  };
+  ;
 
   const fetchBooksData = async () => {
     if (search) {
@@ -24,25 +23,17 @@ function Home() {
       }
     }
   };
+
+  const debounceFetchData = useDebounce(fetchBooksData, 500);
+
   useEffect(() => {
-    fetchBooksData(); // call this method if deplay between key press is graeter then 500ms
+    debounceFetchData();
   }, [search]);
+
   return (
     <div className="container">
-      <div className="search-bar">
-        <img
-          src="https://www.svgrepo.com/show/7109/search.svg"
-          className="img"
-        />
-        <input
-          className="search"
-          placeholder="search"
-          type="search"
-          onChange={handleSearch}
-        />
-      </div>
-
-      <section className="bookTable">
+      {/* <SearchBar fun={handleSearch} /> */}
+      <div className="book-card">
         {record
           ?.filter((item) =>
             item?.volumeInfo?.title
@@ -51,21 +42,25 @@ function Home() {
           )
           ?.map((list, index) => (
             <div key={index}>
-              <img
-                className="productImage"
-                src={
-                  list?.volumeInfo?.imageLinks
-                    ? list?.volumeInfo?.imageLinks.thumbnail
-                    : "http://books.google.com/books/content?id=2HvGDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-                }
-              />
-              <h3>{list?.volumeInfo?.title}</h3>
-              <p>{list?.volumeInfo?.authors?.join(",")}</p>
-              <p>{list?.volumeInfo?.publisher}</p>
-            </div>
+              <BookCard book={list} />
+              <div className="hoverElements">
+                <h2 >Additional Collection</h2>
+                <h4 >Views:243M</h4>
+                <p >Very good book</p>
+              </div>
+              
+             
+              </div>
+            
           ))}
-      </section>
+      </div>
+      
     </div>
+
+
+
   );
 }
+
 export default Home;
+

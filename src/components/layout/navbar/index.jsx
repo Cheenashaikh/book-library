@@ -1,30 +1,26 @@
+
+
+// src/components/layout/navbar/index.jsx
 import React from "react";
 import "./Navbar.css";
-function Navbar(){
+import SearchBar from "../../../pages/home/search";
 
-return(
-
-
-    <div>
+function Navbar({ handleSearch }) {
+  return (
     <header className="headerDesign">
-      <h3>Books</h3>
+      <img
+        className="img-logo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtGL5wP8jB6d6jEWJxBvXceZMvNCJJAldNPQ&s"
+        alt="Books Stack"
+      />
       <ul className="horizontal">
-
-      <li>
-          <a href="/">Home</a>
-        </li>
-      
-        <li>
-          <a href="/Service">About Us</a>
-        </li>
-        
-        <li>
-          <a href="/contact">Contact</a>
-        </li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Service">About Us</a></li>
+        <li><a href="/Contact">Contact</a></li>
       </ul>
+      <SearchBar fun={handleSearch} />
     </header>
-  </div>
-);
-
+  );
 }
+
 export default Navbar;
